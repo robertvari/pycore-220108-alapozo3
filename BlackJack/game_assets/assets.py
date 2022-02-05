@@ -8,8 +8,12 @@ class Card:
 
 
 class Deck:
-    pass
+    def __init__(self):
+        self._cards = []
 
+    @property
+    def cards(self):
+        return self._cards
 
 class Player:
     def __init__(self):
@@ -19,3 +23,4 @@ class Player:
 # testing my assets
 if __name__ == '__main__':
     deck = Deck()
+    print(deck.cards)
