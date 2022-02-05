@@ -1,8 +1,9 @@
 class Dice:
-    # class constant attributes
+    # class attributes
     dices_created = 0
 
     def __init__(self, color, sides):
+        # instance attribute
         self.color = color
         self.sides = sides
         Dice.dices_created += 1
