@@ -57,14 +57,31 @@ class Deck:
         return new_card
 
 
-class Player:
+class PlayerBase:
     def __init__(self):
-        self._hande = []
+        self.name = None
+        self.hand = []
+        self.credits = 0
+        self.email = "robert@gmail.com"
+
+    def say_my_name(self):
+        print("Haisemberg!")
+
+
+class Player(PlayerBase):
+    pass
+
+
+class AIPlayer(PlayerBase):
+    pass
 
 
 # testing my assets
 if __name__ == '__main__':
     deck = Deck()
 
-    my_card = deck.draw()
-    print(my_card)
+    my_player = Player()
+    my_enemy = AIPlayer()
+
+    my_enemy.say_my_name()
+    my_player.say_my_name()

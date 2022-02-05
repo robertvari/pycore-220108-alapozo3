@@ -1,11 +1,11 @@
-from game_assets.assets import Deck, Player
+from game_assets.assets import Deck, Player, AIPlayer
 
 
 class BlackJack:
     def __init__(self):
         self._intro()
 
-        # todo create a deck of card
+        # create a deck of card
         self.deck = Deck()
 
         # todo create a player
