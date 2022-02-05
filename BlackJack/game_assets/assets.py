@@ -18,9 +18,4 @@ class Player:
 
 # testing my assets
 if __name__ == '__main__':
-    card1 = Card("Club Ace", 11)
-    card2 = Card("Club 3", 3)
-    card3 = Card("Spade 7", 7)
-
-    hande = [card1, card2, card3]
-    print(hande)
+    deck = Deck()
