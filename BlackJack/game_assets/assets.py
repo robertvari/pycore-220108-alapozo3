@@ -52,6 +52,11 @@ class Deck:
 
         random.shuffle(self._cards)
 
+    def draw(self):
+        new_card = self._cards[0]
+        self._cards.remove(new_card)
+        return new_card
+
 
 class Player:
     def __init__(self):
@@ -61,5 +66,6 @@ class Player:
 # testing my assets
 if __name__ == '__main__':
     deck = Deck()
-    print(deck.cards)
-    print(len(deck.cards))
+
+    my_card = deck.draw()
+    print(my_card)
