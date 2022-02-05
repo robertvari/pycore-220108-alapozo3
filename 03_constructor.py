@@ -14,4 +14,4 @@ my_dice2 = Dice(10, "blue")
 my_dice3 = Dice(20, "red")
 
 my_dice1.color = 10
-print(my_dice1.color)
+print(my_dice1.co)
