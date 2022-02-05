@@ -13,7 +13,6 @@ class Card:
 class Deck:
     def __init__(self):
         self._cards = []
-
         self.create()
 
     @property
