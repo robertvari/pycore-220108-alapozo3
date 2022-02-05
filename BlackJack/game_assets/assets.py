@@ -1,3 +1,6 @@
+import random
+
+
 class Card:
     def __init__(self, name, value):
         self._name = name
@@ -47,8 +50,7 @@ class Deck:
                     Card(card_name, card_value)
                 )
 
-
-
+        random.shuffle(self._cards)
 
 
 class Player:
