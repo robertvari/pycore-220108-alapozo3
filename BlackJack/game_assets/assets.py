@@ -38,6 +38,16 @@ class Deck:
 
         names = ["Heart", "Club", "Diamond", "Spade"]
 
+        for name in names:
+            for card in cards:
+                card_name = f"{name} {card[0]}"
+                card_value = card[1]
+
+                self._cards.append(
+                    Card(card_name, card_value)
+                )
+
+
 
 class Player:
     def __init__(self):
@@ -48,3 +58,4 @@ class Player:
 if __name__ == '__main__':
     deck = Deck()
     print(deck.cards)
+    print(len(deck.cards))
