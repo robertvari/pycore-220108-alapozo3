@@ -58,14 +58,16 @@ class Deck:
 
 
 class PlayerBase:
+    name_list = ["Brittney Moriah", "Curtis Tristin", "Lucas Troy", "Chip Gale", "Simon Lynn"]
+    
     def __init__(self):
-        self.name = None
-        self.hand = []
-        self.credits = 0
-        self.email = "robert@gmail.com"
+        self._name = None
+        self._hand = []
+        self._credits = 0
+        self._in_game = True
 
-    def say_my_name(self):
-        print("Haisemberg!")
+    def __str__(self):
+        return f"Name: {self._name}\nCredits: {self._credits}\nHand: {self._hand}"
 
 
 class Player(PlayerBase):
@@ -80,8 +82,5 @@ class AIPlayer(PlayerBase):
 if __name__ == '__main__':
     deck = Deck()
 
-    my_player = Player()
-    my_enemy = AIPlayer()
-
-    my_enemy.say_my_name()
-    my_player.say_my_name()
+    ai_player = AIPlayer()
+    print(ai_player)
