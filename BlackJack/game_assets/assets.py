@@ -100,6 +100,11 @@ class PlayerBase:
                     new_card.value = 1
                 self._hand.append(new_card)
 
+    def set_start_hand(self, deck: Deck):
+        for _ in range(2):
+            new_card = deck.draw()
+            self._hand.append(new_card)
+
     def reset(self):
         self._hand.clear()
         self._in_game = True
@@ -157,5 +162,6 @@ if __name__ == '__main__':
     deck = Deck()
 
     player = Player()
+    player.set_start_hand(deck)
     player.draw_card(deck)
     print(player)
