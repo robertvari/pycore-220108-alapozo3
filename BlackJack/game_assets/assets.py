@@ -67,6 +67,10 @@ class PlayerBase:
         self._credits = random.randint(10, 100)
         self._in_game = True
 
+    def draw_card(self, deck: Deck):
+        new_card = deck.draw()
+        self._hand.append(new_card)
+
     def __str__(self):
         return f"Name: {self._name}\nCredits: {self._credits}\nHand: {self._hand}"
 
@@ -90,10 +94,5 @@ if __name__ == '__main__':
     deck = Deck()
 
     ai_player1 = AIPlayer()
-    ai_player2 = AIPlayer()
-    ai_player3 = AIPlayer()
-    ai_player4 = AIPlayer()
+    ai_player1.draw_card(deck)
     print(ai_player1)
-    print(ai_player2)
-    print(ai_player3)
-    print(ai_player4)
