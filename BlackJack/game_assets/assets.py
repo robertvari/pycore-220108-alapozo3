@@ -58,12 +58,13 @@ class Deck:
 
 
 class PlayerBase:
-    name_list = ["Brittney Moriah", "Curtis Tristin", "Lucas Troy", "Chip Gale", "Simon Lynn"]
+    first_names = ["Brittney", "Curtis", "Lucas", "Chip", "Simon"]
+    last_names = ["Moriah", "Tristin", "Troy", "Gale", "Lynn"]
 
     def __init__(self):
         self._name = None
         self._hand = []
-        self._credits = 0
+        self._credits = random.randint(10, 100)
         self._in_game = True
 
     def __str__(self):
@@ -81,11 +82,18 @@ class AIPlayer(PlayerBase):
         super().__init__()
 
         # do your own stuff
-        self._name = random.choice(self.name_list)
+        self._name = f"{random.choice(self.first_names)} {random.choice(self.last_names)}"
 
 
 # testing my assets
 if __name__ == '__main__':
     deck = Deck()
 
-    ai_player = AIPlayer()
+    ai_player1 = AIPlayer()
+    ai_player2 = AIPlayer()
+    ai_player3 = AIPlayer()
+    ai_player4 = AIPlayer()
+    print(ai_player1)
+    print(ai_player2)
+    print(ai_player3)
+    print(ai_player4)
