@@ -48,6 +48,10 @@ class BlackJack:
         for player in self._players:
             player.draw_card(self.deck)
 
+        for player in self._players:
+            print("-"*50)
+            print(player)
+
 
     # protected method
     def _intro(self):
