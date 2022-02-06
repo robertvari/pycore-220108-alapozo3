@@ -68,8 +68,14 @@ class PlayerBase:
         self._in_game = True
 
     def draw_card(self, deck: Deck):
+        # count hand
+
+        # hand value > 16 or < 21
         new_card = deck.draw()
         self._hand.append(new_card)
+
+    def _count_hand(self):
+        return sum([card.value for card in self._hand])
 
     def __str__(self):
         return f"Name: {self._name}\nCredits: {self._credits}\nHand: {self._hand}"
