@@ -48,6 +48,15 @@ class CharacterBase:
         self._current_HP = self._max_HP
         self._max_weight = self.races[self._race]["max_weight"]
 
+    def show_character_card(self):
+        print(f"Name: {self._name}")
+        print(f"Race: {self._race}")
+        print(f"Strength: {self._strength}")
+        print(f"Max HP: {self._max_HP}")
+        print(f"Max Weight: {self._max_weight}")
+        print(f"Golds: {self._golds}")
+        print(f"Inventory: {self._inventory}")
+
     def __repr__(self):
         return f"{self._name}"
 
@@ -62,12 +71,10 @@ class NPC(CharacterBase):
     def __init__(self):
         super().__init__()
         self._name = self.get_fantasy_name()
+        self._race = random.choice(list(self.races))
+        self._setup_attributes()
 
 
 if __name__ == '__main__':
     npc = NPC()
-    enemy = NPC()
-    player = Player()
-    print(npc)
-    print(enemy)
-    print(player)
+    npc.show_character_card()
