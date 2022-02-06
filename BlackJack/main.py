@@ -1,4 +1,4 @@
-import random
+import random, os
 
 from game_assets.assets import Deck, Player, AIPlayer
 
@@ -29,6 +29,8 @@ class BlackJack:
         self._start_round()
 
     def _start_round(self):
+        self._clear_window()
+
         # shuffle player list
         random.shuffle(self._players)
 
@@ -68,6 +70,9 @@ class BlackJack:
             winner.add_credits(self._bet)
         else:
             print("House wins!")
+
+    def _clear_window(self):
+        os.system("cls")
 
     # protected method
     def _intro(self):
