@@ -68,6 +68,10 @@ class Player(CharacterBase):
     def __init__(self):
         super().__init__()
         self._name = input("What is your name?")
+        user_choice = input(f"What is your race? {list(self.races)}")
+
+        self._race = user_choice
+        self._setup_attributes()
 
 
 class NPC(CharacterBase):
@@ -86,7 +90,4 @@ class NPC(CharacterBase):
 
 if __name__ == '__main__':
     npc = NPC()
-    npc.show_character_card()
-
     player = Player()
-    player.show_character_card()
