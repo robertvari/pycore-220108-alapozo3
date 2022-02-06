@@ -37,10 +37,16 @@ class BlackJack:
         # reset all players
         [player.reset() for player in self._players]
 
-        # bet
         self._bet = 0
         for player in self._players:
+            # give bet
             self._bet += player.give_bet(self._min_bet)
+
+            # setup starting hand
+            player.set_start_hand(self.deck)
+
+        for player in self._players:
+            player.draw_card(self.deck)
 
 
     # protected method
