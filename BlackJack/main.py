@@ -3,15 +3,26 @@ from game_assets.assets import Deck, Player, AIPlayer
 
 class BlackJack:
     def __init__(self):
+        self._players = []
+
         self._intro()
 
         # create a deck of card
         self.deck = Deck()
 
-        # todo create a player
+        # create a player
         self.player = Player()
+        self._players.append(self.player)
 
-        # todo AI player
+        # AI player
+        self._players += [
+            AIPlayer(),
+            AIPlayer(),
+            AIPlayer()
+        ]
+
+        print(self._players)
+
         # todo bet
 
     # protected method

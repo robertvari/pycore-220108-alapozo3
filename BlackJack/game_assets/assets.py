@@ -115,6 +115,8 @@ class PlayerBase:
     def __str__(self):
         return f"Name: {self._name}\nCredits: {self._credits}\nHand: {self._hand}\nHand value: {self._count_hand()}"
 
+    def __repr__(self):
+        return self._name
 
 class Player(PlayerBase):
     def __init__(self):
