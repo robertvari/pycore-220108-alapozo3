@@ -51,6 +51,12 @@ class BlackJack:
 
         self._get_winner()
 
+        if input("Do you want to play again? (y/n)") == "y":
+            self._start_round()
+        else:
+            print("Have nice day!")
+            exit()
+
     def _get_winner(self):
         player_list = [player for player in self._players if player.count_hand() <= 21]
 
