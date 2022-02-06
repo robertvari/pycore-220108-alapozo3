@@ -42,6 +42,12 @@ class CharacterBase:
 
         return f"{random.choice(FIRST)}{random.choice(SECOND)}"
 
+    def _setup_attributes(self):
+        self._strength = self.races[self._race]["strength"]
+        self._max_HP = self.races[self._race]["max_HP"]
+        self._current_HP = self._max_HP
+        self._max_weight = self.races[self._race]["max_weight"]
+
     def __repr__(self):
         return f"{self._name}"
 
