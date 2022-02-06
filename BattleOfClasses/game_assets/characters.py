@@ -35,16 +35,22 @@ class CharacterBase:
 
         return f"{random.choice(FIRST)}{random.choice(SECOND)}"
 
+    def __repr__(self):
+        return self._name
+
 
 class Player(CharacterBase):
     pass
 
 
-class Enemy(CharacterBase):
-    pass
+class NPC(CharacterBase):
+    def __init__(self):
+        super().__init__()
+        self._name = self.get_fantasy_name()
 
 
-class NPC(Enemy):
-    pass
-
-
+if __name__ == '__main__':
+    npc = NPC()
+    enemy = NPC()
+    print(npc)
+    print(enemy)
