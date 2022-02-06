@@ -7,8 +7,10 @@ class PlaceBase:
 
 
 class Tavern(PlaceBase):
-    pass
+    def enter(self, player):
+        print(f"Welcome in the tavern {player}. I you have gold, you are in the right place.")
 
 
 class Arena(PlaceBase):
-    pass
+    def enter(self, player):
+        print(f"You are in the arena {player}. Fight for your life!")
