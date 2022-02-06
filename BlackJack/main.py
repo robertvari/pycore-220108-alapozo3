@@ -49,9 +49,19 @@ class BlackJack:
         for player in self._players:
             player.draw_card(self.deck)
 
-        for player in self._players:
-            print("-"*50)
-            print(player)
+        self._get_winner()
+
+    def _get_winner(self):
+        player_list = [player for player in self._players if player.count_hand() <= 21]
+
+        if player_list:
+            winner_list = sorted(player_list, key=lambda player: player.count_hand())
+            winner = winner_list[-1]
+
+            print(f"The winner is: {winner.name} who wins: {self._bet}")
+            winner.add_credits(self._bet)
+        else:
+            print("House wins!")
 
     # protected method
     def _intro(self):

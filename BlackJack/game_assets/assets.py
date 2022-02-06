@@ -83,7 +83,7 @@ class PlayerBase:
 
         while self._in_game:
             # count hand
-            hand_value = self._count_hand()
+            hand_value = self.count_hand()
 
             if hand_value > 16:
                 self._in_game = False
@@ -113,14 +113,22 @@ class PlayerBase:
         self._credits -= value
         return value
 
-    def _count_hand(self):
+    def count_hand(self):
         return sum([card.value for card in self._hand])
 
+    def add_credits(self, credits):
+        self._credits += credits
+
+    @property
+    def name(self):
+        return self._name
+
     def __str__(self):
-        return f"Name: {self._name}\nCredits: {self._credits}\nHand: {self._hand}\nHand value: {self._count_hand()}"
+        return f"Name: {self._name}\nCredits: {self._credits}\nHand: {self._hand}\nHand value: {self.count_hand()}"
 
     def __repr__(self):
         return self._name
+
 
 class Player(PlayerBase):
     def __init__(self):
@@ -132,7 +140,7 @@ class Player(PlayerBase):
         # todo start hand
 
         print(f"Cards is your hand: {self._hand}")
-        print(f"Your hand value: {self._count_hand()}")
+        print(f"Your hand value: {self.count_hand()}")
 
         response = input("Do you want to draw a card? (y/n)")
         while response == "y":
@@ -142,9 +150,9 @@ class Player(PlayerBase):
             self._hand.append(new_card)
 
             print(f"Cards is your hand: {self._hand}")
-            print(f"Your hand value: {self._count_hand()}")
+            print(f"Your hand value: {self.count_hand()}")
 
-            if self._count_hand() > 21:
+            if self.count_hand() > 21:
                 print("You lost this round :(")
                 break
 
