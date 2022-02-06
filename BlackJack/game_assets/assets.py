@@ -14,6 +14,10 @@ class Card:
     def value(self, new_value):
         self._value = new_value
 
+    @property
+    def name(self):
+        return self._name
+
     def __repr__(self):
         return f"{self._name} {self._value}"
 
@@ -92,6 +96,8 @@ class PlayerBase:
                 new_card = deck.draw()
 
                 # if new_card is an ace
+                if "Ace" in new_card.name and hand_value > 10:
+                    new_card.value = 1
                 self._hand.append(new_card)
 
     def reset(self):
