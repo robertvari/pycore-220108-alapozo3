@@ -9,7 +9,6 @@ class CharacterBase:
         "dwarf": {"strength": 130, "max_HP": 230, "max_weight": 150},
     }
 
-
     def __init__(self):
         # base attributes
         self._name = None
