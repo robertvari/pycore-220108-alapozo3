@@ -2,11 +2,19 @@ import random
 
 
 class CharacterBase:
+    races = {
+        "human": {"strength": 50, "max_HP": 100, "max_weight": 50},
+        "ork": {"strength": 130, "max_HP": 200, "max_weight": 100},
+        "elf": {"strength": 60, "max_HP": 100, "max_weight": 60},
+        "dwarf": {"strength": 130, "max_HP": 230, "max_weight": 150},
+    }
+
+
     def __init__(self):
         # base attributes
         self._name = None
         self._race = None
-        self._golds = 0
+        self._golds = random.randint(0, 1000)
 
         # inventory
         self._inventory = []
@@ -36,11 +44,13 @@ class CharacterBase:
         return f"{random.choice(FIRST)}{random.choice(SECOND)}"
 
     def __repr__(self):
-        return self._name
+        return f"{self._name}"
 
 
 class Player(CharacterBase):
-    pass
+    def __init__(self):
+        super().__init__()
+        self._name = input("What is your name?")
 
 
 class NPC(CharacterBase):
@@ -52,5 +62,7 @@ class NPC(CharacterBase):
 if __name__ == '__main__':
     npc = NPC()
     enemy = NPC()
+    player = Player()
     print(npc)
     print(enemy)
+    print(player)
