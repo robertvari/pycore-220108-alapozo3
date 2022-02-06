@@ -60,6 +60,10 @@ class CharacterBase:
         print(f"Right hand: {self._right_hand}")
         print(f"Inventory: {self._inventory}")
 
+    @property
+    def weapon_in_hand(self):
+        return self._right_hand
+
     def __repr__(self):
         return f"{self._name}"
 
@@ -67,10 +71,10 @@ class CharacterBase:
 class Player(CharacterBase):
     def __init__(self):
         super().__init__()
-        self._name = input("What is your name?")
-        user_choice = input(f"What is your race? {list(self.races)}")
+        self._name = "Robert"
+        #user_choice = input(f"What is your race? {list(self.races)}")
 
-        self._race = user_choice
+        self._race = "human"
         self._setup_attributes()
 
 

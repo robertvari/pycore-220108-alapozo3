@@ -14,8 +14,6 @@ class BattleOfClasses:
         self._tavern = Tavern(self)
         self._arena = Arena(self)
 
-        # A is B or A has B
-
         self._arena.enter()
 
     @property
