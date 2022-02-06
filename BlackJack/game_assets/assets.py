@@ -59,7 +59,7 @@ class Deck:
 
 class PlayerBase:
     name_list = ["Brittney Moriah", "Curtis Tristin", "Lucas Troy", "Chip Gale", "Simon Lynn"]
-    
+
     def __init__(self):
         self._name = None
         self._hand = []
@@ -75,7 +75,13 @@ class Player(PlayerBase):
 
 
 class AIPlayer(PlayerBase):
-    pass
+    # method override
+    def __init__(self):
+        # base class __init__ call
+        super().__init__()
+
+        # do your own stuff
+        self._name = random.choice(self.name_list)
 
 
 # testing my assets
@@ -83,4 +89,3 @@ if __name__ == '__main__':
     deck = Deck()
 
     ai_player = AIPlayer()
-    print(ai_player)
