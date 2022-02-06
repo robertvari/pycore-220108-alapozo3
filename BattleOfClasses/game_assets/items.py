@@ -7,6 +7,9 @@ class ItemBase:
     def use(self):
         print(f"Using {self._name}")
 
+    def __repr__(self):
+        return f"{self._name} price: {self._price}"
+
 
 class Weapon(ItemBase):
     def use(self):

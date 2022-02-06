@@ -1,4 +1,5 @@
 import random
+from game_assets.items import Weapon, Food, Drink
 
 
 class CharacterBase:
@@ -55,6 +56,8 @@ class CharacterBase:
         print(f"Max HP: {self._max_HP}")
         print(f"Max Weight: {self._max_weight}")
         print(f"Golds: {self._golds}")
+        print(f"Left hand: {self._left_hand}")
+        print(f"Right hand: {self._right_hand}")
         print(f"Inventory: {self._inventory}")
 
     def __repr__(self):
@@ -74,7 +77,16 @@ class NPC(CharacterBase):
         self._race = random.choice(list(self.races))
         self._setup_attributes()
 
+        self._inventory += [
+            Food("Cheese", 10, 3)
+        ]
+
+        self._right_hand = Weapon("Sword", 34, 7)
+
 
 if __name__ == '__main__':
     npc = NPC()
     npc.show_character_card()
+
+    player = Player()
+    player.show_character_card()
