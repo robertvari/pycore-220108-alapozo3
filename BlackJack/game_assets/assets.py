@@ -112,7 +112,34 @@ class PlayerBase:
 
 
 class Player(PlayerBase):
-    pass
+    def __init__(self):
+        super(Player, self).__init__()
+
+        self._name = input("what is your name?")
+
+    def draw_card(self, deck: Deck):
+        # todo start hand
+
+        print(f"Cards is your hand: {self._hand}")
+        print(f"Your hand value: {self._count_hand()}")
+
+        response = input("Do you want to draw a card? (y/n)")
+        while response == "y":
+            new_card = deck.draw()
+            print(f"The new card: {new_card}")
+
+            self._hand.append(new_card)
+
+            print(f"Cards is your hand: {self._hand}")
+            print(f"Your hand value: {self._count_hand()}")
+
+            if self._count_hand() > 21:
+                print("You lost this round :(")
+                break
+
+            response = input("Do you want to draw a card? (y/n)")
+
+        self._in_game = False
 
 
 class AIPlayer(PlayerBase):
@@ -129,7 +156,6 @@ class AIPlayer(PlayerBase):
 if __name__ == '__main__':
     deck = Deck()
 
-    ai_player1 = AIPlayer()
-    for _ in range(10):
-        ai_player1.draw_card(deck)
-        ai_player1.reset()
+    player = Player()
+    player.draw_card(deck)
+    print(player)
