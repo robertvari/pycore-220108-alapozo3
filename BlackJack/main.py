@@ -25,6 +25,7 @@ class BlackJack:
             AIPlayer()
         ]
 
+        # start first round
         self._start_round()
 
     def _start_round(self):
