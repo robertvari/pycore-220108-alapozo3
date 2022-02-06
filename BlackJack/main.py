@@ -53,7 +53,6 @@ class BlackJack:
             print("-"*50)
             print(player)
 
-
     # protected method
     def _intro(self):
         print("="*50, "BlackJack Game", "="*50,)
