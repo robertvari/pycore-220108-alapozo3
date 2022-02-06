@@ -164,4 +164,11 @@ if __name__ == '__main__':
     player = Player()
     player.set_start_hand(deck)
     player.draw_card(deck)
+
+    ai_player = AIPlayer()
+    ai_player.set_start_hand(deck)
+    ai_player.draw_card(deck)
+
+    print("-"*50, "Game Results", "-"*50)
     print(player)
+    print(ai_player)
