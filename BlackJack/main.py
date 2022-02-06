@@ -1,9 +1,13 @@
+import random
+
 from game_assets.assets import Deck, Player, AIPlayer
 
 
 class BlackJack:
     def __init__(self):
         self._players = []
+        self._bet = 0
+        self._min_bet = 10
 
         self._intro()
 
@@ -21,9 +25,23 @@ class BlackJack:
             AIPlayer()
         ]
 
-        print(self._players)
+        self._start_round()
 
-        # todo bet
+    def _start_round(self):
+        # shuffle player list
+        random.shuffle(self._players)
+
+        # create a new deck
+        self.deck.create()
+
+        # reset all players
+        [player.reset() for player in self._players]
+
+        # bet
+        self._bet = 0
+        for player in self._players:
+            self._bet += player.give_bet(self._min_bet)
+
 
     # protected method
     def _intro(self):

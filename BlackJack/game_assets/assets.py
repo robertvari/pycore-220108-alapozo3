@@ -109,6 +109,10 @@ class PlayerBase:
         self._hand.clear()
         self._in_game = True
 
+    def give_bet(self, value):
+        self._credits -= value
+        return value
+
     def _count_hand(self):
         return sum([card.value for card in self._hand])
 
