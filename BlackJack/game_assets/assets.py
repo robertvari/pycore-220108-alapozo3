@@ -6,6 +6,14 @@ class Card:
         self._name = name
         self._value = value
 
+    @property
+    def value(self):
+        return self._value
+
+    @value.setter
+    def value(self, new_value):
+        self._value = new_value
+
     def __repr__(self):
         return f"{self._name} {self._value}"
 
@@ -68,17 +76,33 @@ class PlayerBase:
         self._in_game = True
 
     def draw_card(self, deck: Deck):
-        # count hand
 
-        # hand value > 16 or < 21
-        new_card = deck.draw()
-        self._hand.append(new_card)
+        while self._in_game:
+            # count hand
+            hand_value = self._count_hand()
+
+            if hand_value > 16:
+                self._in_game = False
+
+                if hand_value > 21:
+                    print(f"{self._name} lost this round")
+                else:
+                    print(f"{self._name} passes")
+            else:
+                new_card = deck.draw()
+
+                # if new_card is an ace
+                self._hand.append(new_card)
+
+    def reset(self):
+        self._hand.clear()
+        self._in_game = True
 
     def _count_hand(self):
         return sum([card.value for card in self._hand])
 
     def __str__(self):
-        return f"Name: {self._name}\nCredits: {self._credits}\nHand: {self._hand}"
+        return f"Name: {self._name}\nCredits: {self._credits}\nHand: {self._hand}\nHand value: {self._count_hand()}"
 
 
 class Player(PlayerBase):
@@ -100,5 +124,6 @@ if __name__ == '__main__':
     deck = Deck()
 
     ai_player1 = AIPlayer()
-    ai_player1.draw_card(deck)
-    print(ai_player1)
+    for _ in range(10):
+        ai_player1.draw_card(deck)
+        ai_player1.reset()
