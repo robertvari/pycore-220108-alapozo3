@@ -43,6 +43,24 @@ class CharacterBase:
 
         return f"{random.choice(FIRST)}{random.choice(SECOND)}"
 
+    def take_damage(self, damage):
+        self._current_HP -= damage
+
+    def attack(self, other):
+        print(f"{self._name} attacks {other}")
+
+        attack_strength = random.randint(0, self._strength)
+
+        if attack_strength == 0:
+            print(f"{self._name} misses {other}")
+        else:
+            print(f"{self._name} hits {other} with {attack_strength} strength")
+            other.take_damage(attack_strength)
+
+    @property
+    def is_dead(self):
+        return self._current_HP <= 0
+
     def _setup_attributes(self):
         self._strength = self.races[self._race]["strength"]
         self._max_HP = self.races[self._race]["max_HP"]
